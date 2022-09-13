@@ -2,19 +2,43 @@
   "transactions": [
     {
       "id": 1,
-      "description": "Desenvolvimento de site",
+      "description": "Renda Mensal",
       "type": "income",
-      "category": "Venda",
-      "price": 14000,
-      "createdAt": "22-09-12"
+      "category": "Trabalho",
+      "price": 5000,
+      "createdAt": "'2022-09-13T21:03:42.432Z'"
     },
     {
       "id": 2,
-      "description": "Dogão",
+      "description": "Mercado",
       "type": "oucome",
-      "category": "Comida",
-      "price": 14000,
-      "createdAt": "22-09-22"
+      "category": "Alimetação",
+      "price": 500,
+      "createdAt": "'2022-09-22T21:03:42.432Z'"
+    },
+    {
+      "id": 3,
+      "description": "Aluguel",
+      "type": "oucome",
+      "category": "Moradia",
+      "price": 600,
+      "createdAt": "'2022-09-22T21:03:42.432Z'"
+    },
+    {
+      "id": 4,
+      "description": "Festa",
+      "type": "oucome",
+      "category": "Lazer",
+      "price": 100,
+      "createdAt": "'2022-09-27T21:03:42.432Z'"
+    },
+    {
+      "id": 5,
+      "description": "Bet",
+      "type": "income",
+      "category": "renda passiva",
+      "price": 1200,
+      "createdAt": "'2022-09-30T21:03:42.432Z'"
     }
   ]
 }
