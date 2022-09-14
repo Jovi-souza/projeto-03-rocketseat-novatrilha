@@ -1,49 +1,74 @@
-import { createContext, ReactNode, useEffect, useState } from "react";
+import { createContext, ReactNode, useEffect, useState } from 'react'
+import { api } from '../lib/axios'
 
 interface Transaction {
-  id: number;
-  description: string;
-  type: "income" | "outcome";
-  price: number;
-  category: string;
-  createdAT: string;
+  id: number
+  description: string
+  type: 'income' | 'outcome'
+  price: number
+  category: string
+  createdAT: string
+}
+
+interface CreateTransactionInput {
+  description: string
+  category: string
+  price: number
+  type: string
 }
 
 interface TransactionsContextType {
-  transactions: Transaction[];
+  transactions: Transaction[]
+  fetchTransaction: (query?: string) => Promise<void>
+  createTransaction: (data: CreateTransactionInput) => Promise<void>
 }
 
-export const TransactionsContext = createContext({} as TransactionsContextType);
+export const TransactionsContext = createContext({} as TransactionsContextType)
 
 interface TransactionsProviderProps {
-  children: ReactNode;
+  children: ReactNode
 }
 
 export function TransactionsProvider({ children }: TransactionsProviderProps) {
-  const [transactions, setTransactions] = useState<Transaction[]>([]);
+  const [transactions, setTransactions] = useState<Transaction[]>([])
 
-  async function loadtransaction() {
-    const response = await fetch("http://localhost:3000/transactions");
-    const data = await response.json();
+  async function fetchTransaction(query?: string) {
+    const response = await api.get('transactions', {
+      params: {
+        _sort: 'createdAt',
+        _order: 'desc',
+        q: query,
+      },
+    })
 
-    setTransactions(data);
-  } // modo asyncrona de fazer uma chamada para uma API
+    setTransactions(response.data)
+  }
+
+  async function createTransaction(data: CreateTransactionInput) {
+    const { description, type, category, price } = data
+
+    const response = await api.post('transactions', {
+      description,
+      category,
+      price,
+      type,
+      createdAt: new Date(),
+    })
+    setTransactions((state) => [response.data, ...state])
+  }
 
   useEffect(() => {
-    loadtransaction();
-  }, []);
-
-  // useEffect(() => {
-  //   fetch("http://localhost:3000/transactions")
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       console.log(data);
-  //     });
-  // }, []); // eu devo utiliizar o useEffect pq ele é a forma de disparar uma função em determinado momento
-
+    fetchTransaction()
+  }, [])
   return (
-    <TransactionsContext.Provider value={{ transactions }}>
+    <TransactionsContext.Provider
+      value={{
+        transactions,
+        fetchTransaction,
+        createTransaction,
+      }}
+    >
       {children}
     </TransactionsContext.Provider>
-  );
+  )
 }

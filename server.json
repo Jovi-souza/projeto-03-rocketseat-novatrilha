@@ -1,44 +1,28 @@
 {
   "transactions": [
     {
-      "id": 1,
-      "description": "Renda Mensal",
+      "description": "Salário mês",
+      "category": "Renda mensal",
+      "price": "2500",
       "type": "income",
-      "category": "Trabalho",
-      "price": 5000,
-      "createdAt": "'2022-09-13T21:03:42.432Z'"
+      "createAt": "2022-09-14T18:16:31.217Z",
+      "id": 1
     },
     {
-      "id": 2,
-      "description": "Mercado",
-      "type": "oucome",
-      "category": "Alimetação",
-      "price": 500,
-      "createdAt": "'2022-09-22T21:03:42.432Z'"
-    },
-    {
-      "id": 3,
       "description": "Aluguel",
-      "type": "oucome",
-      "category": "Moradia",
-      "price": 600,
-      "createdAt": "'2022-09-22T21:03:42.432Z'"
+      "category": "moradia",
+      "price": "500",
+      "type": "outcome",
+      "createAt": "2022-09-14T18:16:48.055Z",
+      "id": 2
     },
     {
-      "id": 4,
-      "description": "Festa",
-      "type": "oucome",
-      "category": "Lazer",
-      "price": 100,
-      "createdAt": "'2022-09-27T21:03:42.432Z'"
-    },
-    {
-      "id": 5,
       "description": "Bet",
+      "category": "Renda passiva",
+      "price": "1200",
       "type": "income",
-      "category": "renda passiva",
-      "price": 1200,
-      "createdAt": "'2022-09-30T21:03:42.432Z'"
+      "createdAt": "2022-09-14T18:52:31.769Z",
+      "id": 3
     }
   ]
 }
