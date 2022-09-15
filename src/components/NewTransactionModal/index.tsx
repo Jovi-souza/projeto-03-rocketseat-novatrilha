@@ -11,7 +11,7 @@ import { X, ArrowCircleUp, ArrowCircleDown } from 'phosphor-react'
 import * as zod from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm, Controller } from 'react-hook-form'
-import { useContext } from 'react'
+import { useContextSelector } from 'use-context-selector'
 import { TransactionsContext } from '../../contexts/TransactionsContext'
 
 const newTransactionFormSchema = zod.object({
@@ -23,7 +23,12 @@ const newTransactionFormSchema = zod.object({
 
 type NewTransactionFormInputs = zod.infer<typeof newTransactionFormSchema>
 export function NewTransactionModal() {
-  const { createTransaction } = useContext(TransactionsContext)
+  const createTransaction = useContextSelector(
+    TransactionsContext,
+    (context) => {
+      return context.createTransaction
+    },
+  )
   const {
     control, // sempre que eu precisar incluir uma informação em um frmulario e não ve de um input ou de um elemento nativo de um html a gente usa o control
     register,
