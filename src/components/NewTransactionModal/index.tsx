@@ -51,6 +51,7 @@ export function NewTransactionModal() {
       category,
       price,
     })
+
     reset()
   }
 
@@ -65,7 +66,7 @@ export function NewTransactionModal() {
           <X size={24} />
         </CloseButton>
 
-        <form onSubmit={handleSubmit(handleCreateNewTransaction)}>
+        <form onSubmit={() => handleSubmit(handleCreateNewTransaction)}>
           <input
             type="text"
             placeholder="Descrição"

@@ -1,28 +1,5 @@
 {
   "transactions": [
-    {
-      "description": "Salário mês",
-      "category": "Renda mensal",
-      "price": "2500",
-      "type": "income",
-      "createAt": "2022-09-14T18:16:31.217Z",
-      "id": 1
-    },
-    {
-      "description": "Aluguel",
-      "category": "moradia",
-      "price": "500",
-      "type": "outcome",
-      "createAt": "2022-09-14T18:16:48.055Z",
-      "id": 2
-    },
-    {
-      "description": "Bet",
-      "category": "Renda passiva",
-      "price": "1200",
-      "type": "income",
-      "createdAt": "2022-09-14T18:52:31.769Z",
-      "id": 3
-    }
+    
   ]
 }
